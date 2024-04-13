@@ -1,0 +1,22 @@
+{
+  "name": "personalbttbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grammyjs/auto-retry": "^1.1.1",
+    "@grammyjs/menu": "^1.2.1",
+    "@grammyjs/parse-mode": "github:grammyjs/parse-mode",
+    "cron": "^3.1.7",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.22.4",
+    "nodemon": "^3.1.0"
+  }
+}
