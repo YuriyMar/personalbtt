@@ -23,7 +23,7 @@ let isGroupOpen = true;
 bot.start((ctx) => ctx.reply(bot.status));
 
 bot.command('test', (ctx) => {
-    ctx.reply(' privet bot is running');
+    ctx.reply(' privet bot is running 2 ');
 })
 
 const setDateTime = function (date, str) {
