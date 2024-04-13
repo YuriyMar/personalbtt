@@ -177,7 +177,7 @@ bot.on('message', async (ctx) => {
 
 //cron //- выполнять по расписанию когда группа засыпает 
 const job = new CronJob(
-    '0 59 20 * * *', // cronTime
+    '0 00 21 * * *', // cronTime
     function () {
         bot.api.sendMessage(constValue.ID_GROUP_NEDVIJKA,
             generateForGroupSleep(constValue.ID_GROUP_NEDVIJKA),
@@ -196,7 +196,7 @@ const job = new CronJob(
 
 //cron //- выполнять по расписанию когда группа просыпается 
 const jobWakeup = new CronJob(
-    '0 59 06 * * *', // cronTime
+    '0 00 07 * * *', // cronTime
     function () {
         bot.api.sendMessage(constValue.ID_GROUP_NEDVIJKA,
             constValue.msgWhenGroupWakeUpNedvijka,
