@@ -65,6 +65,7 @@ const isGroupOpenFunc = function (enterDate) {
         , start = setDateTime(new Date(currentMsgDate), '07:00:00')
         , end = setDateTime(new Date(currentMsgDate), '21:00:00');
 
+    console.log(` datemessage = ${curr} , startgetTime = ${start.getTime()} ,  endgetTime = ${end.getTime()}`);
     return (curr >= start.getTime() && curr < end.getTime());
 
 }
