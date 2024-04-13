@@ -103,7 +103,7 @@ bot.on('message', async (ctx) => {
     isGroupOpen = isGroupOpenFunc(new Date(ctx.message.date * 1000));
     const subscribe = bot.api.getChatMember(ctx.chat.id, ctx.from.id);
     userStatus = (await subscribe).status;
-    console.log(` Статус пользователя ( ${ctx.from.username} )= ${userStatus}`);
+    console.log(` Статус пользователя ( ${ctx.from.username} )= ${userStatus} , isGroupOpen = ${isGroupOpen} `);
 
     isAdmin = (userStatus.toUpperCase() == "CREATOR" || userStatus.toUpperCase() == "ADMINISTRATOR")
 
