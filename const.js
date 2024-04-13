@@ -35,8 +35,8 @@ const msgWhenGroupWakeUpAvto = `
 <u><i>P.S. Не соромтесь додавати нових учасників у группу для збільшення аудіторії переглядів оголошень</i></u>`;
 
 
-const ID_GROUP_NEDVIJKA = -1002110430105; //for test   /*-1002142875676; // for work*/
-const ID_GROUP_AVTO = -1002104281555; //for test    /*-1002029615072; // for work*/
+const ID_GROUP_NEDVIJKA = /*-1002110430105; //for test*/   -1002142875676; // for work
+const ID_GROUP_AVTO = /*-1002104281555; //for test*/    -1002029615072; // for work
 const isTest = true;
 
 
