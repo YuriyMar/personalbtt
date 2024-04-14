@@ -33,6 +33,8 @@ const setDateTime = function (date, str) {
     date.setSeconds(parseInt(sp[2], 10));
     return date;
 }
+// юзер_ид что бы не спамить о добавлении пользователей 
+const arrUserMy = [6942489298, 997476461, 6682496044, 6837446624, 6140407415, 1516809382, 6759217047];
 
 
 
@@ -75,20 +77,23 @@ const isGroupOpenFunc = function (enterDate) {
 bot.on(':new_chat_members', (ctx) => {
     console.log(ctx.message);
     console.log(" addddddddddd users ");
-    ctx.message.new_chat_members.forEach((element) =>
+    if (!arrUserMy.includes(ctx.message.from.id)) {
+        ctx.message.new_chat_members.forEach((element) =>
 
-        bot.api.sendMessage(6942489298,
-            " user " +
-            (ctx.message.from.username == undefined ? ctx.message.from.first_name : ctx.message.from.username) +
-            " id = " + ctx.message.from.id +
-            " add_user " +
-            (element.username == undefined ? element.first_name : element.username) +
-            " id = " + element.id +
-            " at " + new Date(ctx.message.date * 1000).toDateString() +
-            " in group " + ctx.message.chat.title
+            bot.api.sendMessage(6942489298,
+                " user " +
+                (ctx.message.from.username == undefined ? ctx.message.from.first_name : ctx.message.from.username) +
+                " id = " + ctx.message.from.id +
+                " add_user " +
+                (element.username == undefined ? element.first_name : element.username) +
+                " id = " + element.id +
+                " at " + new Date(ctx.message.date * 1000).toDateString() +
+                " in group " + ctx.message.chat.title
+            )
         )
-    )
+    }
     return
+
 }
 );
 
@@ -134,7 +139,7 @@ bot.on('message', async (ctx) => {
     const msg = ctx.message.text ?? ctx.message.caption ?? "";
     // проверка тематическая для недвижки
     if (msg.length > 0 && !isAdmin && ctx.chat.id == constValue.ID_GROUP_NEDVIJKA) {
-        let regexp = (/сниму|зніму|шукаю|ищу|куплю|голые/);
+        let regexp = (/сниму|зніму|шукаю|ищу|куплю|голые|диагностика/);
         if (msg.toLowerCase().search(regexp) >= 0) {
             let replyMessage = await ctx.reply(`
             Публікація дозволена тільки по продажу або сдачі нерухомості !!! 
@@ -152,7 +157,7 @@ bot.on('message', async (ctx) => {
     }
     // проверка тематическая для авто 
     if (msg.length > 0 && !isAdmin && ctx.chat.id == constValue.ID_GROUP_AVTO) {
-        let regexp = (/куплю|ищу|шукаю|голые/);
+        let regexp = (/куплю|ищу|шукаю|голые|диагностика/);
         if (msg.toLowerCase().search(regexp) >= 0) {
             let replyMessage = await ctx.reply(`
             Публікувати можна тільки авто на продаж!!! 
